@@ -13,14 +13,14 @@ with open('chave.key', 'rb') as file:
 cipher_suite = Fernet(key)
 
 # Senhas criptografadas 
-senhaAmbiente_encrypted = b'gAAAAABnabM3q1mQYK4m7OlADTqmHmIGlDsGKmajEdJ4PwKVjkx_rNK-mbYb5zqeHy9dKjJ-oGpRnxIeDM-4HYxdPwd-wHmlnlnvrPd0xiosU1_cKzWlRfo='
-usuario_encrypted = b'gAAAAABnabM3SuHVPZSKOJPmdC92oOwS2PyZ8K7oIyOYI_vWzN2JGLpJE-_ltvqE_0VVZlvHCuK2UOZd4MdArqCU1J1OeHvpHw=='
-senha_encrypted = b'gAAAAABnabM3vCVDGHMCLSA7GGnIPYaTbYXrdCdskePch4TWyAA0KRu3bHkPzQXa2XNXFix7Dx0bmmOCuDm_eCW23tZf9dpyDA=='
+HYxdPwd = b'gAAAAABnabM3q1mQYK4m7OlADTqmHmIGlDsGKmajEdJ4PwKVjkx_rNK-mbYb5zqeHy9dKjJ-oGpRnxIeDM-4HYxdPwd-wHmlnlnvrPd0xiosU1_cKzWlRfo='
+JPmdC = b'gAAAAABnabM3SuHVPZSKOJPmdC92oOwS2PyZ8K7oIyOYI_vWzN2JGLpJE-_ltvqE_0VVZlvHCuK2UOZd4MdArqCU1J1OeHvpHw=='
+TWyAA = b'gAAAAABnabM3vCVDGHMCLSA7GGnIPYaTbYXrdCdskePch4TWyAA0KRu3bHkPzQXa2XNXFix7Dx0bmmOCuDm_eCW23tZf9dpyDA=='
 
-# Descriptografar as Senhas
-senhaAmbiente = cipher_suite.decrypt(senhaAmbiente_encrypted).decode()
-usuario = cipher_suite.decrypt(usuario_encrypted).decode()
-senha = cipher_suite.decrypt(senha_encrypted).decode()
+# D.S
+s_Amb = cipher_suite.decrypt(HYxdPwd).decode()
+u = cipher_suite.decrypt(JPmdC).decode()
+s = cipher_suite.decrypt(TWyAA).decode()
 
 # Definindo o diretório e relatório
 relatorio = "PSG_Relatorio com itens - (0097)"
@@ -33,19 +33,19 @@ def abrir_sap():
     pyautogui.press("enter")  # Para abrir o SAP
     time.sleep(5)
 
-def logar_sap(senhaAmbiente):
-    pyautogui.moveTo(x=490, y=225, duration=1)  # Move o mouse até o campo de senha
-    pyautogui.click(x=490, y=225)  # Entra no campo de senha
-    pyautogui.write(senhaAmbiente)  # Digita a senha do ambiente (alterar conforme necessário)
+def logar_sap(s_Amb):
+    pyautogui.moveTo(x=490, y=225, duration=1)  # Move o mouse até o campo de s
+    pyautogui.click(x=490, y=225)  # Entra no campo de s
+    pyautogui.write(s_Amb)  # Digita a s do ambiente (alterar conforme necessário)
     pyautogui.press("enter")  # Loga no ambiente
     time.sleep(15)  # Aguarda 15 segundos para logar no usuário, garantindo que o ambiente conectou
 
-def logar_usuario(usuario, senha):
+def logar_usuario(u, s):
     pyautogui.moveTo(x=793, y=364, duration=1)
     pyautogui.click(x=793, y=364)
-    pyautogui.write(usuario)  # Usuário, mudar conforme necessário
-    pyautogui.press("tab")  # Muda para o campo de senha
-    pyautogui.write(senha)  # Senha do usuário, trocar conforme necessário
+    pyautogui.write(u)  # Usuário, mudar conforme necessário
+    pyautogui.press("tab")  # Muda para o campo de s
+    pyautogui.write(s)  # s do usuário, trocar conforme necessário
     pyautogui.press("enter")
     time.sleep(10)
 
@@ -100,8 +100,8 @@ def fechar_relatorio():
 
 if __name__ == "__main__":
     abrir_sap()
-    logar_sap(senhaAmbiente)
-    logar_usuario(usuario, senha)
+    logar_sap(s_Amb)
+    logar_usuario(u, s)
     fechar_janela_selecionar_filial()  # Dependendo do usuário, esse trecho pode ser comentado
     abrir_gerenciador_consultas(relatorio)
     converter_xlsx(diretorio)
