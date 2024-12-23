@@ -1,0 +1,20 @@
+posição que minimiza para a area de trabalho = (x=1362, y=751)
+posição do SAP na area de trabalho = (x=555, y=25)
+posicao da senha do ambiente no SAP = (x=490, y=225)
+
+posição do login dentro do ambiente SAP = (x=793, y=364)
+
+fechar janela de filial padrão, após o login = (x=938, y=222)
+
+posição do gerenciador de consulta = (x=860, y=53)
+posição do campo de pesquisa do gerenciador de consulta = (x=632, y=264)
+coloca o mouse fora do campo de pesquisa, para poder dar scroll = (x=459, y=286)
+inicio da barra de rolagem da consulta = (x=889, y=282)
+final da barra de rolagem da consulta = (x=891, y=415)
+
+posição do relatório 97 = (x=344, y=392)
+posição do botão para converter em XLSX =(x=166, y=55)
+posição da barra para digitar o diretório onde o arquivo será salvo =(x=381, y=81)
+posição para escolher o tipo do arquivo xlsx = (x=257, y=435)
+posição da seleção = (x=300, y=482)
+Simbolos de moeda como não = (x=422, y=381)
